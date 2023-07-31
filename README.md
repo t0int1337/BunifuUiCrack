@@ -4,7 +4,7 @@ Bunifu UI Cracked
 1. Go to your projects folder
 2. Find the packages folder (If you cant find it go one folder down)
 3. Find Bunifu.Licensing.5.0.0
-4. Overwrite both of the files.
+4. Overwrite the file.
 5. Done! Enjoy
 
 # if you want to contact me
