@@ -1,5 +1,6 @@
 # BunifuUiCrack
 Bunifu UI Cracked
+You can use this with the latest version of Bunifu UI
 ## How to install?
 1. Go to your projects folder
 2. Find the packages folder (If you cant find it go one folder down)
