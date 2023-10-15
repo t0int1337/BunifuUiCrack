@@ -9,5 +9,5 @@ You can use this with the latest version of Bunifu UI
 5. Done! Enjoy
 
 # if you want to contact me
-discord: @hex.decimal
+discord: @t0int
 telegram: @t0int
