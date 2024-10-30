@@ -14,6 +14,3 @@ This only works for .NET Framework, i will work on a .NET Core crack soon.<br>
 If you have problems, you can [create an issue](https://github.com/t0int1337/BunifuUiCrack/issues/new). 
 ### Star the repo ⭐
 
-# if you want to contact me
-discord: @t0int
-telegram: @t0int
