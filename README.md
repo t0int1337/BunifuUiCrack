@@ -11,6 +11,7 @@ This only works for .NET Framework, i will work on a .NET Core crack soon.<br>
 4. Overwrite the file.
 5. Done! Enjoy
 
+If you have problems, you can [create an issue](https://github.com/t0int1337/BunifuUiCrack/issues/new). 
 ### Star the repo ⭐
 
 # if you want to contact me
