@@ -1,24 +1,60 @@
-# BunifuUiCrack
-Bunifu UI Cracked (First non-virus version lol...)<br>
-You can use this with the 7.2.0 version of the Bunifu UI Library.<br>
-(Or, you can use this with any version with Bunifu UI that **uses Bunifu.Licensing 6.0.4**)<br>
-<br>
-# .NET Framework
-**This method is for .NET Framework**<br>
-1. Go to your project's folder (On Windows: C:\Users\yourusername\source\repo\ProjectName)
-2. Find the packages folder (If you cant find it go one folder down it should be in the solution's folder)
-3. Find Bunifu.Licensing.6.0.4
-4. **Overwrite the net45 folder with the one from this repo**
-5. Done! Enjoy
 
-# .NET Core
-**This method is for .NET Core**<br>
-1. Go to your bunifu licensing nuget package folder (`C:\Users\yourusername\.nuget\packages\bunifu.licensing\6.0.4\lib`) 
-2. Download net8.0-windows7.0 folder from this repo
-3. Overwrite the folder.
-4. Done! Enjoy
+<p align="center">
+  <img src="https://imgur.com/4sil75E.png" alt="Bunifu UI Logo" width="150" />
+</p>
+
+# Cracked Bunifu UI License DLL (v6.0.8) for Bunifu Framework v8.0.0
 
 
-If you have problems, you can [create an issue](https://github.com/t0int1337/BunifuUiCrack/issues/new). 
-### Star the repo ⭐
+**Disclaimer**:  
+⚠️ **For educational/research purposes only**.   
+⚠️ **100% safe**: No viruses/malware. Does not alter core functionality.  
+⚠️ **Not for production use** – support Bunifu by purchasing a license at [bunifuframework.com](https://bunifuframework.com/).  
 
+---
+
+## Overview  
+Modified `Bunifu.Licensing.dll` (v6.0.8) to bypass license checks for **Bunifu Framework v8.0.0**. Compatible with any Bunifu UI version using **Bunifu.Licensing 6.0.8**.  
+
+---
+
+## Features  
+- ✅ Full compatibility with **Bunifu Framework v8.0.0**  
+- ✅ Removes license validation  
+- ✅ Works for both **.NET Framework** and **.NET Core**  
+
+---
+
+## Setup  
+
+### .NET Framework  
+1. Navigate to your project’s `packages` folder:  
+   ```bash
+   # Example path:
+   C:\Users\YourUsername\source\repos\YourProject\packages\Bunifu.Licensing.6.0.8
+   ```  
+2. Replace the existing `net48` folder with the one from this repository.  
+
+### .NET Core  
+1. Locate the Bunifu NuGet package folder:  
+   ```bash
+   # Example path:
+   C:\Users\YourUsername\.nuget\packages\bunifu.licensing\6.0.8\lib
+   ```  
+2. Replace the `net8.0-windows7.0` folder with the one provided here.  
+
+3. **Re build/open your project** in Visual Studio.  
+
+---
+
+## Legal  
+- This repository **does not distribute Bunifu's copyrighted code**  
+- Unauthorized use in projects violates [Bunifu's terms](https://bunifuframework.com/terms).  
+- Maintainers assume **no liability** for misuse.  
+
+---
+
+**Need help?**  
+If you have problems, you can create an issue. 
+
+### ⭐Star this repo if you find it useful!  
