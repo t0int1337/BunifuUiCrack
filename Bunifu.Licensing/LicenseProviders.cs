@@ -20,6 +20,10 @@ namespace Bunifu.Licensing
 		// Token: 0x06000001 RID: 1 RVA: 0x00002050 File Offset: 0x00000250
 		private static LicenseUsageMode GetContext(LicenseContext context)
 		{
+#if SKIP_LICENSE_CHECK
+			// When SKIP_LICENSE_CHECK is defined, always return Designtime to avoid runtime checks
+			return LicenseUsageMode.Designtime;
+#else
 			LicenseUsageMode licenseUsageMode = LicenseUsageMode.Designtime;
 			bool flag = Application.ExecutablePath.IndexOf("DesignToolsServer.exe", StringComparison.OrdinalIgnoreCase) > -1;
 			if (flag)
@@ -27,11 +31,18 @@ namespace Bunifu.Licensing
 				licenseUsageMode = LicenseUsageMode.Designtime;
 			}
 			return licenseUsageMode;
+#endif
 		}
 
 		// Token: 0x06000002 RID: 2 RVA: 0x00002080 File Offset: 0x00000280
 		private static License InvokeActivation(ProductTypes product, LicenseContext context, Type type, LicenseProviders.LicenseStatus status, bool reshow = false, bool f1ad718eb = true)
 		{
+#if SKIP_LICENSE_CHECK
+			// When SKIP_LICENSE_CHECK is defined, return a valid license without any checks
+			var license = LicenseBypass.CreateFakeLicense(product);
+			LicenseValidator.RetrievedLicense = license as Record;
+			return license;
+#else
 			bool flag = false;
 			LicenseProviders._f1ad718eb = f1ad718eb;
 			bool flag2 = product == ProductTypes.UIWinForms;
@@ -141,11 +152,18 @@ namespace Bunifu.Licensing
 				license = null;
 			}
 			return license;
+#endif
 		}
 
 		// Token: 0x06000003 RID: 3 RVA: 0x0000221C File Offset: 0x0000041C
 		private static License GetProductLicense(ProductTypes product, LicenseContext context, Type type)
 		{
+#if SKIP_LICENSE_CHECK
+			// When SKIP_LICENSE_CHECK is defined, return a valid license without any checks
+			var license = LicenseBypass.CreateFakeLicense(product);
+			LicenseValidator.RetrievedLicense = license as Record;
+			return license;
+#else
 			LicenseUsageMode context2 = LicenseProviders.GetContext(context);
 			bool flag = context2 == LicenseUsageMode.Designtime;
 			License license;
@@ -333,6 +351,7 @@ namespace Bunifu.Licensing
 				}
 			}
 			return license;
+#endif
 		}
 
 		// Token: 0x06000004 RID: 4 RVA: 0x000026E4 File Offset: 0x000008E4
@@ -386,7 +405,14 @@ namespace Bunifu.Licensing
 			// Token: 0x06000271 RID: 625 RVA: 0x00017B4C File Offset: 0x00015D4C
 			public override License GetLicense(LicenseContext context, Type type, object instance, bool allowExceptions)
 			{
+#if SKIP_LICENSE_CHECK
+				// When SKIP_LICENSE_CHECK is defined, return a valid license without any checks
+				var license = LicenseBypass.CreateFakeLicense(ProductTypes.UIWinForms);
+				LicenseValidator.RetrievedLicense = license as Record;
+				return license;
+#else
 				return LicenseProviders.GetProductLicense(ProductTypes.UIWinForms, context, type);
+#endif
 			}
 		}
 
@@ -397,7 +423,14 @@ namespace Bunifu.Licensing
 			// Token: 0x06000273 RID: 627 RVA: 0x00017B70 File Offset: 0x00015D70
 			public override License GetLicense(LicenseContext context, Type type, object instance, bool allowExceptions)
 			{
+#if SKIP_LICENSE_CHECK
+				// When SKIP_LICENSE_CHECK is defined, return a valid license without any checks
+				var license = LicenseBypass.CreateFakeLicense(ProductTypes.DatavizBasicWinForms);
+				LicenseValidator.RetrievedLicense = license as Record;
+				return license;
+#else
 				return LicenseProviders.GetProductLicense(ProductTypes.DatavizBasicWinForms, context, type);
+#endif
 			}
 		}
 
@@ -408,7 +441,14 @@ namespace Bunifu.Licensing
 			// Token: 0x06000275 RID: 629 RVA: 0x00017B94 File Offset: 0x00015D94
 			public override License GetLicense(LicenseContext context, Type type, object instance, bool allowExceptions)
 			{
+#if SKIP_LICENSE_CHECK
+				// When SKIP_LICENSE_CHECK is defined, return a valid license without any checks
+				var license = LicenseBypass.CreateFakeLicense(ProductTypes.DatavizAdvancedWinForms);
+				LicenseValidator.RetrievedLicense = license as Record;
+				return license;
+#else
 				return LicenseProviders.GetProductLicense(ProductTypes.DatavizAdvancedWinForms, context, type);
+#endif
 			}
 		}
 
@@ -419,7 +459,14 @@ namespace Bunifu.Licensing
 			// Token: 0x06000277 RID: 631 RVA: 0x00017BB8 File Offset: 0x00015DB8
 			public override License GetLicense(LicenseContext context, Type type, object instance, bool allowExceptions)
 			{
+#if SKIP_LICENSE_CHECK
+				// When SKIP_LICENSE_CHECK is defined, return a valid license without any checks
+				var license = LicenseBypass.CreateFakeLicense(ProductTypes.Charts);
+				LicenseValidator.RetrievedLicense = license as Record;
+				return license;
+#else
 				return LicenseProviders.GetProductLicense(ProductTypes.Charts, context, type);
+#endif
 			}
 		}
 	}

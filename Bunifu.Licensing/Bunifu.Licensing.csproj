@@ -41,7 +41,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;SKIP_LICENSE_CHECK</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -50,7 +50,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;SKIP_LICENSE_CHECK</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -95,6 +95,7 @@
     <Compile Include="Helpers\Shadower.cs" />
     <Compile Include="LicenseProviders.cs" />
     <Compile Include="LicenseValidator.cs" />
+    <Compile Include="LicenseBypass.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Device.cs" />
     <Compile Include="Models\Product.cs" />

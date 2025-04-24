@@ -1,6 +1,8 @@
 ﻿#if NET5_0_OR_NETFRAMEWORK
 using System.Runtime.CompilerServices;
 #endif
+// Added SKIP_LICENSE_CHECK preprocessor definition that can be enabled to bypass all license checks
+#define SKIP_LICENSE_CHECK
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -150,17 +152,31 @@ namespace Bunifu.Licensing
 		// Token: 0x06000017 RID: 23 RVA: 0x00002934 File Offset: 0x00000B34
 		public static License Validate(ProductTypes product, Type control = null)
 		{
+#if SKIP_LICENSE_CHECK
+			// When SKIP_LICENSE_CHECK is defined, return a valid license without any checks
+			var license = LicenseBypass.CreateFakeLicense(product);
+			_retrievedLicense = license as Record;
+			return license;
+#else
 			control = typeof(Button);
 			LicenseValidator.Product = product;
 			LicenseValidator._activator.FromCli = false;
 			return LicenseValidator.GetProductLicense(product, new LicenseContext(), control);
+#endif
 		}
 
 		// Token: 0x06000018 RID: 24 RVA: 0x00002974 File Offset: 0x00000B74
 		public static License Validate(ProductTypes product, Type control, object instance)
 		{
+#if SKIP_LICENSE_CHECK
+			// When SKIP_LICENSE_CHECK is defined, return a valid license without any checks
+			var license = LicenseBypass.CreateFakeLicense(product);
+			_retrievedLicense = license as Record;
+			return license;
+#else
 			LicenseValidator.Product = product;
 			return LicenseManager.Validate(control, instance);
+#endif
 		}
 
 		// Token: 0x06000019 RID: 25 RVA: 0x00002998 File Offset: 0x00000B98
@@ -185,6 +201,10 @@ namespace Bunifu.Licensing
 		// Token: 0x0600001A RID: 26 RVA: 0x000029DC File Offset: 0x00000BDC
 		internal static Record Validate(string email, string licenseKey)
 		{
+#if SKIP_LICENSE_CHECK
+			// When SKIP_LICENSE_CHECK is defined, return a fake valid record
+			return LicenseBypass.CreateFakeRecord(email, licenseKey, LicenseValidator.Product);
+#else
 			Record record2;
 			try
 			{
@@ -385,6 +405,7 @@ namespace Bunifu.Licensing
 				record2 = LicenseValidator._retrievedLicense;
 			}
 			return record2;
+#endif
 		}
 
 		// Token: 0x0600001B RID: 27 RVA: 0x000034F4 File Offset: 0x000016F4
@@ -682,6 +703,10 @@ namespace Bunifu.Licensing
 		// Token: 0x06000025 RID: 37 RVA: 0x000039F8 File Offset: 0x00001BF8
 		internal static bool IsLicenseValid(Record license)
 		{
+#if SKIP_LICENSE_CHECK
+			// When SKIP_LICENSE_CHECK is defined, always return true
+			return true;
+#else
 			bool flag3;
 			try
 			{
@@ -708,6 +733,7 @@ namespace Bunifu.Licensing
 				flag3 = false;
 			}
 			return flag3;
+#endif
 		}
 
 		// Token: 0x06000026 RID: 38 RVA: 0x00003A50 File Offset: 0x00001C50
@@ -968,6 +994,10 @@ namespace Bunifu.Licensing
 		// Token: 0x0600002F RID: 47 RVA: 0x00003FC4 File Offset: 0x000021C4
 		private static ValidationResults Validate(ProductTypes product)
 		{
+#if SKIP_LICENSE_CHECK
+			// When SKIP_LICENSE_CHECK is defined, always return a valid result
+			return ValidationResults.LicenseActive;
+#else
 			LicenseValidator.Product = product;
 			bool flag = LicenseValidator.LicenseExists();
 			ValidationResults validationResults;
@@ -988,6 +1018,7 @@ namespace Bunifu.Licensing
 				validationResults = ValidationResults.LicenseNonExistent;
 			}
 			return validationResults;
+#endif
 		}
 
 		// Token: 0x06000030 RID: 48 RVA: 0x00003FFC File Offset: 0x000021FC
@@ -1055,6 +1086,10 @@ namespace Bunifu.Licensing
 		// Token: 0x06000032 RID: 50 RVA: 0x00004180 File Offset: 0x00002380
 		internal static bool IsProductLicenseAvailable(Record license, ProductTypes product)
 		{
+#if SKIP_LICENSE_CHECK
+			// When SKIP_LICENSE_CHECK is defined, always return true
+			return true;
+#else
 			bool flag = false;
 			try
 			{
@@ -1071,6 +1106,7 @@ namespace Bunifu.Licensing
 			{
 			}
 			return flag;
+#endif
 		}
 
 		// Token: 0x06000033 RID: 51 RVA: 0x00004204 File Offset: 0x00002404
@@ -1341,122 +1377,14 @@ namespace Bunifu.Licensing
 		}
 
 		// Token: 0x0600003C RID: 60 RVA: 0x000044AC File Offset: 0x000026AC
-		private static License InvokeActivation(ProductTypes product, LicenseContext context, Type type, LicenseValidator.LicenseStatus status, bool reshow = false, bool f1ad718eb = true)
-		{
-			bool flag = false;
-			LicenseValidator._f1ad718eb = f1ad718eb;
-			bool flag2 = product == ProductTypes.UIWinForms;
-			if (flag2)
-			{
-				flag = LicenseValidator._activator.UIWinFormsWasCancelled;
-			}
-			else
-			{
-				bool flag3 = product == ProductTypes.DatavizBasicWinForms;
-				if (flag3)
-				{
-					flag = LicenseValidator._activator.DatavizBasicWasCancelled;
-				}
-				else
-				{
-					bool flag4 = product == ProductTypes.DatavizAdvancedWinForms;
-					if (flag4)
-					{
-						flag = LicenseValidator._activator.DatavizAdvancedWasCancelled;
-					}
-					else
-					{
-						bool flag5 = product == ProductTypes.Charts;
-						if (flag5)
-						{
-							flag = LicenseValidator._activator.ChartsWasCancelled;
-						}
-					}
-				}
-			}
-			bool flag6 = !flag || reshow;
-			License license;
-			if (flag6)
-			{
-				LicenseValidator._activator.ShowDialog();
-				bool flag7 = !LicenseActivator.LicenseCreated;
-				if (flag7)
-				{
-					bool flag8 = !reshow;
-					if (flag8)
-					{
-						bool flag9 = status == LicenseValidator.LicenseStatus.NonExistent;
-						if (flag9)
-						{
-							LicenseValidator.ThrowLicenseNonExistentException();
-						}
-						else
-						{
-							bool flag10 = status == LicenseValidator.LicenseStatus.Expired;
-							if (flag10)
-							{
-								LicenseValidator.ThrowLicenseExpiredException();
-							}
-							else
-							{
-								bool flag11 = status == LicenseValidator.LicenseStatus.Invalid;
-								if (flag11)
-								{
-									LicenseValidator.ThrowLicenseInvalidException();
-								}
-							}
-						}
-					}
-					license = null;
-				}
-				else
-				{
-					LicenseValidator.ReadLicense(true);
-					DefaultInterpolatedStringHandler defaultInterpolatedStringHandler = new DefaultInterpolatedStringHandler(2, 3);
-					defaultInterpolatedStringHandler.AppendFormatted<ProductTypes>(product);
-					defaultInterpolatedStringHandler.AppendLiteral(",");
-					defaultInterpolatedStringHandler.AppendFormatted<LicenseTypes>(LicenseValidator.RetrievedLicense.License.Type);
-					defaultInterpolatedStringHandler.AppendLiteral(",");
-					defaultInterpolatedStringHandler.AppendFormatted(type.Name);
-					context.SetSavedLicenseKey(type, defaultInterpolatedStringHandler.ToStringAndClear());
-					license = LicenseValidator.RetrievedLicense;
-				}
-			}
-			else
-			{
-				bool flag12 = !reshow;
-				if (flag12)
-				{
-					bool flag13 = status == LicenseValidator.LicenseStatus.NonExistent;
-					if (flag13)
-					{
-						LicenseValidator.ThrowLicenseNonExistentException();
-					}
-					else
-					{
-						bool flag14 = status == LicenseValidator.LicenseStatus.Expired;
-						if (flag14)
-						{
-							LicenseValidator.ThrowLicenseExpiredException();
-						}
-						else
-						{
-							bool flag15 = status == LicenseValidator.LicenseStatus.Invalid;
-							if (flag15)
-							{
-								LicenseValidator.ThrowLicenseInvalidException();
-							}
-						}
-					}
-				}
-				license = null;
-			}
-			return license;
-		}
-
-		// Token: 0x0600003D RID: 61 RVA: 0x00004648 File Offset: 0x00002848
 		private static License GetProductLicense(ProductTypes product, LicenseContext context, Type type)
 		{
+#if SKIP_LICENSE_CHECK
+			// When SKIP_LICENSE_CHECK is defined, return a valid license without any checks
+			var license = LicenseBypass.CreateFakeLicense(product);
+			_retrievedLicense = license as Record;
+			return license;
+#else
 			LicenseUsageMode context2 = LicenseValidator.GetContext();
 			bool flag = context2 == LicenseUsageMode.Designtime;
 			License license;
@@ -1602,9 +1530,10 @@ namespace Bunifu.Licensing
 				license = null;
 			}
 			return license;
+#endif
 		}
 
-		// Token: 0x0600003E RID: 62 RVA: 0x0000498C File Offset: 0x00002B8C
+		// Token: 0x0600003D RID: 61 RVA: 0x00004648 File Offset: 0x00002848
 		private static bool DevelopmentMode()
 		{
 			bool flag;
@@ -1663,3 +1592,5 @@ namespace Bunifu.Licensing
 		}
 	}
 }
+
+		// Token: 0x0600003D RID: 61 RVA: 0x00004648 File Offset: 0x00002848
