@@ -2,7 +2,7 @@
 <p align="center">
   <img src="https://imgur.com/4sil75E.png" alt="Bunifu UI Logo" width="150" />
 </p>
-
+### ⭐Star this repo to support contributors!
 # Cracked Bunifu UI License DLL (v6.0.8) for Bunifu Framework v8.0.0
 
 
@@ -57,4 +57,3 @@ Modified `Bunifu.Licensing.dll` (v6.0.8) to bypass license checks for **Bunifu F
 **Need help?**  
 If you have problems, you can create an issue. 
 
-### ⭐Star this repo if you find it useful!  
