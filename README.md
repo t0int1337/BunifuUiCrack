@@ -4,7 +4,7 @@
 </p>
 
 # Cracked Bunifu UI License DLL (v6.0.8) for Bunifu Framework v8.0.0
-
+**⭐Star this repo to support contributors!**
 
 **Disclaimer**:  
 ⚠️ **For educational/research purposes only**.   
@@ -57,4 +57,3 @@ Modified `Bunifu.Licensing.dll` (v6.0.8) to bypass license checks for **Bunifu F
 **Need help?**  
 If you have problems, you can create an issue. 
 
-### ⭐Star this repo if you find it useful!  
