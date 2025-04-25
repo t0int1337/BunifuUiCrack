@@ -48,7 +48,6 @@ Modified `Bunifu.Licensing.dll` (v6.0.8) to bypass license checks for **Bunifu F
 ---
 
 ## Legal  
-- This repository **does not distribute Bunifu's copyrighted code**  
 - Unauthorized use in projects violates [Bunifu's terms](https://bunifuframework.com/terms).  
 - Maintainers assume **no liability** for misuse.  
 
