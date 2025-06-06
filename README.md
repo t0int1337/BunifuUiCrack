@@ -3,6 +3,8 @@
 </p>
 
 # Bunifu License Generator
+**⭐Star this repo to support contributors!**
+
 
 **Disclaimer**:  
 ⚠️ **For educational/research purposes only**.   
@@ -44,4 +46,3 @@ A license generator primarily designed for Bunifu Framework v9.0.0. This tool cr
 **Need help?**  
 If you have problems, you can create an issue. 
 
-### ⭐Star this repo if you find it useful!  
