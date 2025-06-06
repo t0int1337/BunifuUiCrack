@@ -1,10 +1,8 @@
-
 <p align="center">
   <img src="https://imgur.com/4sil75E.png" alt="Bunifu UI Logo" width="150" />
 </p>
 
-# Cracked Bunifu UI License DLL (v6.0.8) for Bunifu Framework v8.0.0
-
+# Bunifu License Generator
 
 **Disclaimer**:  
 ⚠️ **For educational/research purposes only**.   
@@ -14,41 +12,30 @@
 ---
 
 ## Overview  
-Modified `Bunifu.Licensing.dll` (v6.0.8) to bypass license checks for **Bunifu Framework v8.0.0**. Compatible with any Bunifu UI version using **Bunifu.Licensing 6.0.8**.  
+A license generator primarily designed for Bunifu Framework v9.0.0. This tool creates licenses for different product types and is compatible with both .NET Framework and .NET Core. **May also work with other Bunifu Framework versions**.
 
 ---
 
 ## Features  
-- ✅ Full compatibility with **Bunifu Framework v8.0.0**  
-- ✅ Removes license validation  
+- ✅ Full compatibility with **Bunifu Framework v9.0.0**  
 - ✅ Works for both **.NET Framework** and **.NET Core**  
-
+- ✅ **Tested on UIWinForm** with latest license module **v6.0.9**  
+- ✅ Compatible with **UIWin framework 9.0.0**  
+- ✅ **Potential compatibility** with other Bunifu versions  
+- ✅ Free and easy to use  
 ---
 
-## Setup  
+## Verified Compatibility  
+| Component          | Version     |   Status   |
+|--------------------|-------------|------------|
+| Bunifu UI WinForms | 9.0.0       | ✔️ Working |
+| License Module     | 6.0.9       | ✔️ Working |
+| .NET Framework     | 4.6.1+      | ✔️ Working |
+| .NET Core          | 8.0         | ✔️ Working |
 
-### .NET Framework  
-1. Navigate to your project’s `packages` folder:  
-   ```bash
-   # Example path:
-   C:\Users\YourUsername\source\repos\YourProject\packages\Bunifu.Licensing.6.0.8
-   ```  
-2. Replace the existing `net48` folder with the one from this repository.  
-
-### .NET Core  
-1. Locate the Bunifu NuGet package folder:  
-   ```bash
-   # Example path:
-   C:\Users\YourUsername\.nuget\packages\bunifu.licensing\6.0.8\lib
-   ```  
-2. Replace the `net8.0-windows7.0` folder with the one provided here.  
-
-3. **Re build/open your project** in Visual Studio.  
 
 ---
-
 ## Legal  
-- This repository **does not distribute Bunifu's copyrighted code**  
 - Unauthorized use in projects violates [Bunifu's terms](https://bunifuframework.com/terms).  
 - Maintainers assume **no liability** for misuse.  
 
