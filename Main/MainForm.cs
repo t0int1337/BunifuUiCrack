@@ -79,8 +79,17 @@ namespace BunifuLicenseGenerator
 
                 LicenseGenerator.SaveLicenseToFile(encryptedLicense, productType);
                 LicenseGenerator.SaveLicenseToRegistry(encryptedLicense, productType);
+                string programDataPath = Path.Combine(
+                    Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
+                    "Bunifu Technologies"
+                );
 
-                labelStatus.Text = "License generated and saved successfully!";
+                string productFolder = Path.Combine(programDataPath, productType.ToString());
+                Directory.CreateDirectory(productFolder);
+
+                string _licenseFilePath = Path.Combine(productFolder, "License.lic");
+
+                labelStatus.Text = "License generated and saved successfully! (" + _licenseFilePath + ")";
                 MessageBox.Show("License generated successfully!\n\n" +
                                $"Product: {productType}\n" +
                                $"HWID: {Hardware.GetUniqueID()}\n" +
@@ -99,6 +108,15 @@ namespace BunifuLicenseGenerator
             }
         }
 
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/t0int1337/BunifuUiCrack");
 
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/t0int1337/BunifuUiCrack/graphs/contributors");
+        }
     }
 }

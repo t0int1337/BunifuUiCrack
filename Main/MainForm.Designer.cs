@@ -43,6 +43,9 @@
             this.txtLicenseKey = new System.Windows.Forms.TextBox();
             this.lbName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnGenerate
@@ -100,7 +103,7 @@
             this.lbProduct.AutoSize = true;
             this.lbProduct.Location = new System.Drawing.Point(12, 129);
             this.lbProduct.Name = "lbProduct";
-            this.lbProduct.Size = new System.Drawing.Size(48, 13);
+            this.lbProduct.Size = new System.Drawing.Size(47, 13);
             this.lbProduct.TabIndex = 8;
             this.lbProduct.Text = "Product:";
             // 
@@ -125,7 +128,7 @@
             this.lbHWID.AutoSize = true;
             this.lbHWID.Location = new System.Drawing.Point(12, 169);
             this.lbHWID.Name = "lbHWID";
-            this.lbHWID.Size = new System.Drawing.Size(39, 13);
+            this.lbHWID.Size = new System.Drawing.Size(40, 13);
             this.lbHWID.TabIndex = 11;
             this.lbHWID.Text = "HWID:";
             // 
@@ -144,7 +147,7 @@
             this.lbLicense.AutoSize = true;
             this.lbLicense.Location = new System.Drawing.Point(12, 9);
             this.lbLicense.Name = "lbLicense";
-            this.lbLicense.Size = new System.Drawing.Size(67, 13);
+            this.lbLicense.Size = new System.Drawing.Size(68, 13);
             this.lbLicense.TabIndex = 13;
             this.lbLicense.Text = "License Key:";
             // 
@@ -173,11 +176,45 @@
             this.txtName.TabIndex = 14;
             this.txtName.Text = "John Doe";
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(368, 29);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(63, 13);
+            this.linkLabel1.TabIndex = 16;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Link to repo";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(325, 50);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(151, 13);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Made by t0int1337 and RE0x0";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
+            this.label3.Location = new System.Drawing.Point(325, 252);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(191, 26);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "If you are a contributor, please open an\r\n issue to have your name here";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(282, 287);
+            this.ClientSize = new System.Drawing.Size(520, 287);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.lbName);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtLicenseKey);
@@ -217,5 +254,8 @@
         private System.Windows.Forms.TextBox txtLicenseKey;
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
